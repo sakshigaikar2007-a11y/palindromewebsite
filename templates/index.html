@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Checker</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 850px;
+            margin: 50px auto;
+            background: white;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+        }
+
+        h1 {
+            text-align: center;
+            color: #4b3f72;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 90%;
+            padding: 14px;
+            margin-top: 10px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 13px 30px;
+            border: none;
+            border-radius: 10px;
+            background: #4b3f72;
+            color: white;
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #302653;
+        }
+
+        .result {
+            margin-top: 30px;
+            padding: 20px;
+            background: #f3f0ff;
+            border-radius: 15px;
+        }
+
+        .box {
+            margin-top: 15px;
+            padding: 15px;
+            background: #ffffff;
+            border-left: 5px solid #4b3f72;
+            border-radius: 8px;
+        }
+
+        .success {
+            color: green;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .failure {
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #777;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>🔄 Palindrome Checker</h1>
+
+    <p class="subtitle">
+        Check a word or sentence using Stack and Queue
+    </p>
+
+    <form method="POST">
+
+        <label>Enter a word or sentence:</label>
+        <br>
+
+        <input type="text"
+               name="text"
+               placeholder="Example: madam"
+               required>
+
+        <br>
+
+        <button type="submit">Check Palindrome</button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>Result</h2>
+
+        {% if result.result == "PALINDROME" %}
+            <p class="success">✓ PALINDROME</p>
+        {% else %}
+            <p class="failure">✗ NOT PALINDROME</p>
+        {% endif %}
+
+        <div class="box">
+            <h3>Why?</h3>
+            <p>{{ result.reason }}</p>
+        </div>
+
+        <div class="box">
+            <h3>📚 Stack Checking</h3>
+            <p>
+                A stack follows <b>LIFO</b>
+                (Last In, First Out).
+            </p>
+
+            <p>
+                Stack output:
+                <b>{{ result.stack }}</b>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>📚 Queue Checking</h3>
+            <p>
+                A queue follows <b>FIFO</b>
+                (First In, First Out).
+            </p>
+
+            <p>
+                Queue output:
+                <b>{{ result.queue }}</b>
+            </p>
+        </div>
+
+        <div class="box">
+            <h3>Cleaned Text</h3>
+            <p>{{ result.input }}</p>
+        </div>
+
+    </div>
+
+    {% endif %}
+
+    <footer>
+        Student Mini Project | Python | Stack & Queue
+        <br><br>
+        <b>Thank You! 😊</b>    
+    </footer>
+
+</div>
+
+</body>
+</html>
